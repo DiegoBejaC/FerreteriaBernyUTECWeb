@@ -1,0 +1,140 @@
+﻿@model IEnumerable<ProyectoEstandares3.Models.Kardex>
+
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<div style="text-align: right">
+    <img style="width:30%" src="~/Imagenes/logoberny1.fw.png" />
+</div>
+
+<h2>Reporte KARDEX</h2>
+
+    <hr />
+
+    <table class="table" style="font-size:10px">
+        <tr>
+            <th>
+                Producto:
+            </th>
+            <th>
+                Existencia mínima:
+            </th>
+            <th>
+                Existencia máxima:
+            </th>
+            <th>
+                Cantidad:
+            </th>
+            <th>
+                Precio Unitario:
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @ViewBag.Producto
+            </td>
+            <td>
+                @ViewBag.StockMin
+            </td>
+            <td>
+                @ViewBag.StockMax
+            </td>
+            <td>
+                @ViewBag.Existencia
+            </td>
+            <td>
+                @ViewBag.PrecioUni
+            </td>
+        </tr>
+    </table>
+
+    <hr />
+
+        <table class="table" style="font-size:10px">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th colspan="3">
+                    Movimiento (Entrada / Salida)
+                </th>
+                <th colspan="3">
+                    Existencias
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    Detalle
+                </th>
+                <th>
+                    Almacen
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+                <th>
+                    P. Unitario
+                </th>
+                <th>
+                    Precio Total
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+                <th>
+                    P. Unitario
+                </th>
+                <th>
+                    Precio Total
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(String.Format("{0:yyyy/MM/dd}", item.Fecha))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Almacen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadNueva)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioNuevo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioTotalNuevo)
+                    </td>
+                </tr>
+            }
+
+        </table>

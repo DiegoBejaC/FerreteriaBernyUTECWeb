@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a9f49a634f842cfb5c45ba687d38997" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="FerreSoriano17Model.Almacenes" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Almacenes_Productos" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Categorias" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Compras" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.ComprasDetalle" Width="1.5" PointX="7.5" PointY="4.375" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Kardex" Width="1.5" PointX="7.75" PointY="8.25" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Marcas" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Productos" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Proveedores" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Usuarios" Width="1.5" PointX="9.75" PointY="8.25" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.Ventas" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="FerreSoriano17Model.VentasDetalle" Width="1.5" PointX="10.5" PointY="4.375" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__Almacenes__Id_Al__32E0915F" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__Almacenes__Id_Pr__33D4B598" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__ComprasDetalle__3B75D760" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__VentasDetalle__4316F928" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__Productos__Id_Ca__2F10007B" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__Compras__Id_Prov__36B12243" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__ComprasDe__Id_Do__3A81B327" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__Productos__Id_Ma__300424B4" />
+        <AssociationConnector Association="FerreSoriano17Model.FK__VentasDet__Id_Do__4222D4EF" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

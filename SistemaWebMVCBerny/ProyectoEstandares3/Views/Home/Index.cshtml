@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Página de inicio";
+}
+
+<center>
+    <div class="jumbotron" style="background-color:white">
+        <img src="~/Imagenes/logoberny1.fw.png" />
+        <h2>Las mejores herramientas en un sólo lugar</h2>
+        <br />
+        <br />
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Sea usted bienvenido/a. Ahora puede acceder a nuestro sistema de reportes.</p>
+            <p>Diríjase a la opción de la barra superior para comenzar.</p>
+        }
+        else
+        {
+            <p>Por favor inicie sesión para poder acceder a este sistema</p>
+        }
+    </div>
+</center>
+
+
+

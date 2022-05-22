@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FerreSoriano17Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FerreSoriano17Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Almacenes" EntityType="FerreSoriano17Model.Almacenes" />
+    <EntitySet Name="Almacenes_Productos" EntityType="FerreSoriano17Model.Almacenes_Productos" />
+    <EntitySet Name="Categorias" EntityType="FerreSoriano17Model.Categorias" />
+    <EntitySet Name="Compras" EntityType="FerreSoriano17Model.Compras" />
+    <EntitySet Name="ComprasDetalle" EntityType="FerreSoriano17Model.ComprasDetalle" />
+    <EntitySet Name="Kardex" EntityType="FerreSoriano17Model.Kardex" />
+    <EntitySet Name="Marcas" EntityType="FerreSoriano17Model.Marcas" />
+    <EntitySet Name="Productos" EntityType="FerreSoriano17Model.Productos" />
+    <EntitySet Name="Proveedores" EntityType="FerreSoriano17Model.Proveedores" />
+    <EntitySet Name="Usuarios" EntityType="FerreSoriano17Model.Usuarios" />
+    <EntitySet Name="Ventas" EntityType="FerreSoriano17Model.Ventas" />
+    <EntitySet Name="VentasDetalle" EntityType="FerreSoriano17Model.VentasDetalle" />
+    <AssociationSet Name="FK__Almacenes__Id_Al__32E0915F" Association="FerreSoriano17Model.FK__Almacenes__Id_Al__32E0915F">
+      <End Role="Almacenes" EntitySet="Almacenes" />
+      <End Role="Almacenes_Productos" EntitySet="Almacenes_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Almacenes__Id_Pr__33D4B598" Association="FerreSoriano17Model.FK__Almacenes__Id_Pr__33D4B598">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Almacenes_Productos" EntitySet="Almacenes_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ComprasDetalle__3B75D760" Association="FerreSoriano17Model.FK__ComprasDetalle__3B75D760">
+      <End Role="Almacenes_Productos" EntitySet="Almacenes_Productos" />
+      <End Role="ComprasDetalle" EntitySet="ComprasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VentasDetalle__4316F928" Association="FerreSoriano17Model.FK__VentasDetalle__4316F928">
+      <End Role="Almacenes_Productos" EntitySet="Almacenes_Productos" />
+      <End Role="VentasDetalle" EntitySet="VentasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productos__Id_Ca__2F10007B" Association="FerreSoriano17Model.FK__Productos__Id_Ca__2F10007B">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Compras__Id_Prov__36B12243" Association="FerreSoriano17Model.FK__Compras__Id_Prov__36B12243">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Compras" EntitySet="Compras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ComprasDe__Id_Do__3A81B327" Association="FerreSoriano17Model.FK__ComprasDe__Id_Do__3A81B327">
+      <End Role="Compras" EntitySet="Compras" />
+      <End Role="ComprasDetalle" EntitySet="ComprasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productos__Id_Ma__300424B4" Association="FerreSoriano17Model.FK__Productos__Id_Ma__300424B4">
+      <End Role="Marcas" EntitySet="Marcas" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VentasDet__Id_Do__4222D4EF" Association="FerreSoriano17Model.FK__VentasDet__Id_Do__4222D4EF">
+      <End Role="Ventas" EntitySet="Ventas" />
+      <End Role="VentasDetalle" EntitySet="VentasDetalle" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Almacenes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Almacenes_Productos" Relationship="FerreSoriano17Model.FK__Almacenes__Id_Al__32E0915F" FromRole="Almacenes" ToRole="Almacenes_Productos" />
+  </EntityType>
+  <EntityType Name="Almacenes_Productos">
+    <Key>
+      <PropertyRef Name="Id_Almacen" />
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Almacen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Existencia" Type="Int32" />
+    <NavigationProperty Name="Almacenes" Relationship="FerreSoriano17Model.FK__Almacenes__Id_Al__32E0915F" FromRole="Almacenes_Productos" ToRole="Almacenes" />
+    <NavigationProperty Name="Productos" Relationship="FerreSoriano17Model.FK__Almacenes__Id_Pr__33D4B598" FromRole="Almacenes_Productos" ToRole="Productos" />
+    <NavigationProperty Name="ComprasDetalle" Relationship="FerreSoriano17Model.FK__ComprasDetalle__3B75D760" FromRole="Almacenes_Productos" ToRole="ComprasDetalle" />
+    <NavigationProperty Name="VentasDetalle" Relationship="FerreSoriano17Model.FK__VentasDetalle__4316F928" FromRole="Almacenes_Productos" ToRole="VentasDetalle" />
+  </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productos" Relationship="FerreSoriano17Model.FK__Productos__Id_Ca__2F10007B" FromRole="Categorias" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Compras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Proveedor" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sumas" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Proveedores" Relationship="FerreSoriano17Model.FK__Compras__Id_Prov__36B12243" FromRole="Compras" ToRole="Proveedores" />
+    <NavigationProperty Name="ComprasDetalle" Relationship="FerreSoriano17Model.FK__ComprasDe__Id_Do__3A81B327" FromRole="Compras" ToRole="ComprasDetalle" />
+  </EntityType>
+  <EntityType Name="ComprasDetalle">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_Almacen" />
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Documento" Type="Int32" Nullable="false" />
+    <Property Name="Id_Almacen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PrecioTotal" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Almacenes_Productos" Relationship="FerreSoriano17Model.FK__ComprasDetalle__3B75D760" FromRole="ComprasDetalle" ToRole="Almacenes_Productos" />
+    <NavigationProperty Name="Compras" Relationship="FerreSoriano17Model.FK__ComprasDe__Id_Do__3A81B327" FromRole="ComprasDetalle" ToRole="Compras" />
+  </EntityType>
+  <EntityType Name="Kardex">
+    <Key>
+      <PropertyRef Name="Id_Kardex" />
+      <PropertyRef Name="Id_Compra" />
+      <PropertyRef Name="Id_Venta" />
+      <PropertyRef Name="Id_almacen" />
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id_Kardex" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Compra" Type="Int32" Nullable="false" />
+    <Property Name="Id_Venta" Type="Int32" Nullable="false" />
+    <Property Name="Id_almacen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PrecioTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="CantidadNueva" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Marcas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productos" Relationship="FerreSoriano17Model.FK__Productos__Id_Ma__300424B4" FromRole="Marcas" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Marca" Type="Int32" Nullable="false" />
+    <Property Name="Id_Categoria" Type="Int32" Nullable="false" />
+    <Property Name="StockMinimo" Type="Int32" Nullable="false" />
+    <Property Name="StockMaximo" Type="Int32" Nullable="false" />
+    <Property Name="Existencia" Type="Int32" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Almacenes_Productos" Relationship="FerreSoriano17Model.FK__Almacenes__Id_Pr__33D4B598" FromRole="Productos" ToRole="Almacenes_Productos" />
+    <NavigationProperty Name="Categorias" Relationship="FerreSoriano17Model.FK__Productos__Id_Ca__2F10007B" FromRole="Productos" ToRole="Categorias" />
+    <NavigationProperty Name="Marcas" Relationship="FerreSoriano17Model.FK__Productos__Id_Ma__300424B4" FromRole="Productos" ToRole="Marcas" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Compras" Relationship="FerreSoriano17Model.FK__Compras__Id_Prov__36B12243" FromRole="Proveedores" ToRole="Compras" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Clave" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Nivel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Ventas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Suma" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="VentasDetalle" Relationship="FerreSoriano17Model.FK__VentasDet__Id_Do__4222D4EF" FromRole="Ventas" ToRole="VentasDetalle" />
+  </EntityType>
+  <EntityType Name="VentasDetalle">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_Almacen" />
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Documento" Type="Int32" Nullable="false" />
+    <Property Name="Id_Almacen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PrecioTotal" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Almacenes_Productos" Relationship="FerreSoriano17Model.FK__VentasDetalle__4316F928" FromRole="VentasDetalle" ToRole="Almacenes_Productos" />
+    <NavigationProperty Name="Ventas" Relationship="FerreSoriano17Model.FK__VentasDet__Id_Do__4222D4EF" FromRole="VentasDetalle" ToRole="Ventas" />
+  </EntityType>
+  <Association Name="FK__Almacenes__Id_Al__32E0915F">
+    <End Type="FerreSoriano17Model.Almacenes" Role="Almacenes" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.Almacenes_Productos" Role="Almacenes_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacenes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Almacenes_Productos">
+        <PropertyRef Name="Id_Almacen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Almacenes__Id_Pr__33D4B598">
+    <End Type="FerreSoriano17Model.Productos" Role="Productos" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.Almacenes_Productos" Role="Almacenes_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Almacenes_Productos">
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ComprasDetalle__3B75D760">
+    <End Type="FerreSoriano17Model.Almacenes_Productos" Role="Almacenes_Productos" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.ComprasDetalle" Role="ComprasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacenes_Productos">
+        <PropertyRef Name="Id_Almacen" />
+        <PropertyRef Name="Id_Producto" />
+      </Principal>
+      <Dependent Role="ComprasDetalle">
+        <PropertyRef Name="Id_Almacen" />
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VentasDetalle__4316F928">
+    <End Type="FerreSoriano17Model.Almacenes_Productos" Role="Almacenes_Productos" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.VentasDetalle" Role="VentasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacenes_Productos">
+        <PropertyRef Name="Id_Almacen" />
+        <PropertyRef Name="Id_Producto" />
+      </Principal>
+      <Dependent Role="VentasDetalle">
+        <PropertyRef Name="Id_Almacen" />
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productos__Id_Ca__2F10007B">
+    <End Type="FerreSoriano17Model.Categorias" Role="Categorias" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="Id_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Compras__Id_Prov__36B12243">
+    <End Type="FerreSoriano17Model.Proveedores" Role="Proveedores" Multiplicity="0..1" />
+    <End Type="FerreSoriano17Model.Compras" Role="Compras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compras">
+        <PropertyRef Name="Id_Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ComprasDe__Id_Do__3A81B327">
+    <End Type="FerreSoriano17Model.Compras" Role="Compras" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.ComprasDetalle" Role="ComprasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComprasDetalle">
+        <PropertyRef Name="Id_Documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productos__Id_Ma__300424B4">
+    <End Type="FerreSoriano17Model.Marcas" Role="Marcas" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.Productos" Role="Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marcas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="Id_Marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VentasDet__Id_Do__4222D4EF">
+    <End Type="FerreSoriano17Model.Ventas" Role="Ventas" Multiplicity="1" />
+    <End Type="FerreSoriano17Model.VentasDetalle" Role="VentasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ventas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VentasDetalle">
+        <PropertyRef Name="Id_Documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

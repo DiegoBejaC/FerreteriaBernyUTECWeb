@@ -1,0 +1,7 @@
+DESCRIPCIÓN DEL SISTEMA ----------
+
+Este sistema consiste en una aplicación en el entorno Web, que es una continuación de la aplicación de "Sistema de Gestión de inventario para la Ferretería Berny", este sistema únicamente extrae la información de cierto producto seleccionado previamente por el usuario y organiza los datos en la forma de un reporte estilo "Kardex", permitiendo visualizar y, si el usuario lo necesita, guardar el reporte generado como PDF para ser almacenado para otros fines.
+
+Este sistema ha sido creado como parte de un trabajo grupal para la asignatura conocida como "Normas y estándares internacionales" en la carrera de Ingeniería en Sistemas de la Universidad Tecnológica de El Salvador (UTEC). Por este motivo y por el hecho de tratarse de una app dirigida a una empresa ficticia, la aplicación no se ha lanzado a producción.
+
+Este sistema se ha programado en el IDE Visual Studio, en lenguaje C# junto con EntityFramework enfocado a un modelo MVC. Conectando a una base de datos en SQL Server alojada en un servidor local. Incluye la librería "Rotativa" para permitir la generación de un reporte en formato PDF a partir de la vista de una página web con la información del reporte en cuestión.
